@@ -28,6 +28,7 @@ const Banner = () => {
         showStatus={false}
         showIndicators={false}
         interval={3000}
+        showThumbs={false}
       >
         {images.map((image, index) => (
           <div key={index} className="h-[400px]">

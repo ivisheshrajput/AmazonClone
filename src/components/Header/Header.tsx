@@ -6,8 +6,13 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { BiCaretDown } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { stateProps } from "../../../type";
 
 const Header = () => {
+  const { productData, favoriteData, userInfo } = useSelector(
+    (state: stateProps) => state.next || {}
+  );
   return (
     <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50">
       <div className="h-full w-full mx-auto inline-flex items-center justify-between gap-1 md:gap-3 px-4">
@@ -57,10 +62,15 @@ const Header = () => {
         {/* Favorites */}
         <div
           className="text-xs text-gray-100 flex flex-col justify-center px-2
-           cursor-pointer h-[70%]"
+           cursor-pointer h-[70%] relative"
         >
           <p>Marked</p>
           <p className="text-white font-bold">& Favorites</p>
+          {favoriteData.length > 0 && (
+            <span className="absolute right-2 top-2 w-4 h-4  flex items-center justify-center text-amazon_yellow  ">
+              {favoriteData.length}
+            </span>
+          )}
         </div>
         {/* cart */}
         <Link
@@ -71,7 +81,7 @@ const Header = () => {
           <FiShoppingCart size={30} />
           <div>
             <div className=" text-amazon_yellow text-sm font-semibold mb-2">
-              0
+              {productData ? productData.length : 0}
             </div>
             <p className="text-xs text-white font-bold  -mt-2">Cart</p>
           </div>

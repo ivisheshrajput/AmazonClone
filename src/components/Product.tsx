@@ -4,6 +4,9 @@ import { FaHeart } from "react-icons/fa";
 import { HiShoppingCart } from "react-icons/hi";
 import { ColorRing } from "react-loader-spinner";
 import { ProductAll } from "../../type";
+import { useDispatch } from "react-redux";
+import FormattedPrice from "./FormattedPrice";
+import { addToCart, addToFavorite } from "@/store/nextSlice";
 // interface ProductAll {
 //   id: number;
 //   title: string;
@@ -22,6 +25,8 @@ interface ProductProps {
 }
 
 const Product = ({ products }: ProductProps) => {
+  const dispatch = useDispatch();
+
   //Infinite Scroll
   const [visibleProducts, setVisibleProducts] = useState(6); // Initially display 6 products
   const [isFetching, setIsFetching] = useState(false);
@@ -89,6 +94,18 @@ const Product = ({ products }: ProductProps) => {
                   className="w-full h-full border-b-[1px] border-b-gray-400 flex items-center justify-center 
                     text-xl bg-transparent hover:bg-amazon_yellow cursor-pointer duration-300
                     "
+                  onClick={() =>
+                    dispatch(
+                      addToFavorite({
+                        id: id,
+                        title: title,
+                        price: price,
+                        category: category,
+                        image: image,
+                        quantity: 1,
+                      })
+                    )
+                  }
                 >
                   <FaHeart />
                 </span>
@@ -100,13 +117,25 @@ const Product = ({ products }: ProductProps) => {
               <p className="text-base font-medium">{title}</p>
               <p className="flex items-center">
                 <span className="text-amazon_blue font-bold">
-                  amount={price * 10}
+                  <FormattedPrice amount={price * 10} />
                 </span>
               </p>
               <p className="text-xs text-gray-600 text-justify">
                 {description.substring(0, 200)}
               </p>
               <button
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      id: id,
+                      title: title,
+                      price: price,
+                      category: category,
+                      image: image,
+                      quantity: 1,
+                    })
+                  )
+                }
                 className="h-10 font-medium bg-amazon_blue text-white round-md hover:bg-amazon_yellow 
                     hover:text-black duration-300 mt-2"
               >

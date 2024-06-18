@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-
-interface ProductAll {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import { ProductAll } from "../../type";
+// interface ProductAll {
+//   id: number;
+//   title: string;
+//   price: number;
+//   description: string;
+//   category: string;
+//   image: string;
+//   rating: {
+//     rate: number;
+//     count: number;
+//   };
+// }
 
 const useProducts = () => {
   const [products, setProducts] = useState<ProductAll[]>([]);

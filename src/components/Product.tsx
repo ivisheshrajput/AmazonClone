@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { HiShoppingCart } from "react-icons/hi";
 import { ColorRing } from "react-loader-spinner";
-
-interface ProductAll {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import { ProductAll } from "../../type";
+// interface ProductAll {
+//   id: number;
+//   title: string;
+//   price: number;
+//   description: string;
+//   category: string;
+//   image: string;
+//   rating: {
+//     rate: number;
+//     count: number;
+//   };
+// }
 
 interface ProductProps {
   products: ProductAll[];

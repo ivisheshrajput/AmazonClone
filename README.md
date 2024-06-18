@@ -4,3 +4,5 @@ npm install react-icons --save
 API Used:https://fakestoreapi.com/
 npm i react-responsive-carousel
 npm i react-loader-spinner
+npm install @reduxjs/toolkit
+npm install react-redux

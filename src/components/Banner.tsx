@@ -1,24 +1,25 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import sliderImg1 from "../images/slide1.jpg";
-import sliderImg2 from "../images/slide2.jpg";
-import sliderImg3 from "../images/slide3.jpg";
-import sliderImg4 from "../images/slide4.jpg";
-import sliderImg5 from "../images/slide5.jpg";
-import sliderImg6 from "../images/slide6.jpg";
-import sliderImg7 from "../images/slide7.jpg";
-import sliderImg8 from "../images/slide8.jpg";
+import slide1 from "@/images/slide1.jpg";
+import slide2 from "@/images/slide2.jpg";
+import slide3 from "@/images/slide3.jpg";
+import slide4 from "@/images/slide4.jpg";
+import slide5 from "@/images/slide5.jpg";
+import slide6 from "@/images/slide6.jpg";
+import slide7 from "@/images/slide7.jpg";
+import slide8 from "@/images/slide8.jpg";
+
 import Image from "next/image";
 const Banner = () => {
   const images = [
-    sliderImg1,
-    sliderImg2,
-    sliderImg3,
-    sliderImg4,
-    sliderImg5,
-    sliderImg6,
-    sliderImg7,
-    sliderImg8,
+    slide1,
+    slide2,
+    slide3,
+    slide4,
+    slide5,
+    slide6,
+    slide7,
+    slide8,
   ];
   return (
     <div className="relative">

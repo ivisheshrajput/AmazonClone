@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useEffect } from "react";
-import logo from "../../Images/logo.png";
+import logo from "../../../public/images/logo.png";
 import { CiLocationOn } from "react-icons/ci";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiCaretDown } from "react-icons/bi";
@@ -8,25 +8,27 @@ import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { stateProps } from "../../../type";
-import { useSession,signIn,signOut } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { addUser } from "@/store/nextSlice";
 
 const Header = () => {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const { productData, favoriteData, userInfo } = useSelector(
-    (state: stateProps) => state.next 
+    (state: stateProps) => state.next
   );
-  const {data:session}=useSession();
-  useEffect(()=>{
-    if(session){
-      dispatch(addUser({
-        name:session?.user?.name,
-        email:session?.user?.email,
-        image:session?.user?.image,
-      }))
-    };
-  },[session])
- 
+  const { data: session } = useSession();
+  useEffect(() => {
+    if (session) {
+      dispatch(
+        addUser({
+          name: session?.user?.name,
+          email: session?.user?.email,
+          image: session?.user?.image,
+        })
+      );
+    }
+  }, [session]);
+
   return (
     <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50">
       <div className="h-full w-full mx-auto inline-flex items-center justify-between gap-1 md:gap-3 px-4">
@@ -61,28 +63,39 @@ const Header = () => {
           </span>
         </div>
         {/* Sign In */}
-        {userInfo?<div className="px-2
-           cursor-pointer h-[70%] flex items-center">
-        <img src={userInfo.image} alt="user image" className="w-8 h-8 rounded-full object-cover" />
-        <div className="text-xs text-gray-100 flex flex-col justify-between">
-          <p className="text-white font-bold">{userInfo.name}</p>
-          <p>{userInfo.email}</p>
+        {userInfo ? (
+          <div
+            className="px-2
+           cursor-pointer h-[70%] flex items-center"
+          >
+            <img
+              src={userInfo.image}
+              alt="user image"
+              className="w-8 h-8 rounded-full object-cover"
+            />
+            <div className="text-xs text-gray-100 flex flex-col justify-between">
+              <p className="text-white font-bold">{userInfo.name}</p>
+              <p>{userInfo.email}</p>
+            </div>
           </div>
-        </div>:<>
-          <div onClick={()=>signIn()}
-          className="text-xs text-gray-100 flex flex-col justify-center px-2
+        ) : (
+          <>
+            <div
+              onClick={() => signIn()}
+              className="text-xs text-gray-100 flex flex-col justify-center px-2
            cursor-pointer h-[70%]"
-        >
-          <p>Hello SignIn</p>
-          <p className="text-white font-bold flex items-center">
-            Accounts & Lists
-            <span>
-              <BiCaretDown />
-            </span>
-          </p>
-        </div>
-        </>} 
-     
+            >
+              <p>Hello SignIn</p>
+              <p className="text-white font-bold flex items-center">
+                Accounts & Lists
+                <span>
+                  <BiCaretDown />
+                </span>
+              </p>
+            </div>
+          </>
+        )}
+
         {/* Favorites */}
         <div
           className="text-xs text-gray-100 flex flex-col justify-center px-2

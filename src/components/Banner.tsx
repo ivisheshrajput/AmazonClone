@@ -1,13 +1,13 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import slide1 from "@/images/slide1.jpg";
-import slide2 from "@/images/slide2.jpg";
-import slide3 from "@/images/slide3.jpg";
-import slide4 from "@/images/slide4.jpg";
-import slide5 from "@/images/slide5.jpg";
-import slide6 from "@/images/slide6.jpg";
-import slide7 from "@/images/slide7.jpg";
-import slide8 from "@/images/slide8.jpg";
+import slide1 from "../../public/images/slide1.jpg";
+import slide2 from "../../public/images/slide2.jpg";
+import slide3 from "../../public/images/slide3.jpg";
+import slide4 from "../../public/images/slide4.jpg";
+import slide5 from "../../public/images/slide5.jpg";
+import slide6 from "../../public/images/slide6.jpg";
+import slide7 from "../../public/images/slide7.jpg";
+import slide8 from "../../public/images/slide8.jpg";
 
 import Image from "next/image";
 const Banner = () => {

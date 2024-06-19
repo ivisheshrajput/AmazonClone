@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../Images/logo.png";
+import logo from "../../public/images/logo.png";
 import Image from "next/image";
 import { FaGithub, FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";

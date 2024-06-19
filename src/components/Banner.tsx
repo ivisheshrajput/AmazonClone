@@ -31,8 +31,8 @@ const Banner = () => {
         showThumbs={false}
       >
         {images.map((image, index) => (
-          <div key={index} className="h-[400px]">
-            <Image src={image} alt={`slider${index + 1}`} />
+          <div key={index} className="h-[500px]">
+            <Image src={image} alt="sliderImg" />
           </div>
         ))}
       </Carousel>

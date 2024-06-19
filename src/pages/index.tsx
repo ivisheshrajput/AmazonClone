@@ -10,7 +10,9 @@ export default function Home() {
     <>
       <main>
         <Banner />
-        <Product products={products} />
+        <div className="-mt-8">
+          <Product products={products} />
+        </div>
       </main>
     </>
   );

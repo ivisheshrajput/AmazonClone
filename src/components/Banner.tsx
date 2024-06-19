@@ -32,7 +32,7 @@ const Banner = () => {
         showThumbs={false}
       >
         {images.map((image, index) => (
-          <div key={index} className="h-[500px]">
+          <div key={index} className="h-[350px]">
             <Image src={image} alt="sliderImg" />
           </div>
         ))}

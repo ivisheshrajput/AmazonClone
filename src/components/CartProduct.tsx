@@ -17,18 +17,21 @@ interface cartProductItemProps {
 const CartProduct = ({ item }: cartProductItemProps) => {
   const dispatch = useDispatch();
   return (
-    <div className="flex  bg-gray-100 rounded-lg justify-between items-center">
+    <div className="flex  rounded-lg justify-between items-center p-4">
       <div className="flex justify-between items-center gap-4">
-        <Image
-          className="object-cover"
-          width={150}
-          height={150}
-          src={item.image}
-          alt="productImage"
-        />
+        <div className="relative w-[150px] h-[100px]">
+          <div className="absolute inset-0">
+            <Image
+              className="object-contain"
+              layout="fill"
+              src={item.image}
+              alt="productImage"
+            />
+          </div>
+        </div>
         <div className="flex items-center px-2 gap-4">
           <div className="flex flex-col gap-1">
-            <p className="text-lg font-semibold text-amazon_blue">
+            <p className="text-md font-semibold text-amazon_blue">
               {item.title}
             </p>
             <p className="text-sm text-gray-600">{item.description}</p>
